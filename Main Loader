@@ -1,0 +1,4 @@
+if _G.Mode = "Orion" then
+loadstring(game:HttpGet('https://raw.githubusercontent.com/DenDenZYT/ScriptCollectionKeyless/main/ScriptsV2'))()
+elseif _G.Mode = "Ray" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/ScriptCollectionKeyless/main/Script%20Collection%20V2%20(DR%20RAY%20LIBRARY)"))()
