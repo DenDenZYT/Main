@@ -22,7 +22,7 @@ end
 
 --[[Your Bizarre Adventure]] function ybacuzyesyourbizzareadventure()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/NukeVsCity/hackscript123/main/gui"))()
-    Window:Close()
+    window:Close()
 end
 
 function ybasucksassyourbizzareadventure()
@@ -83,4 +83,6 @@ ybatab.newButton(
     function()
         bitchboyyourbizzareadventure()
     end
-)
+  )
+
+end
