@@ -1,64 +1,65 @@
-local g=Instance.new("ScreenGui")g.Name="TinyUI"g.DisplayOrder=10
-g.Parent=game.Players.LocalPlayer.PlayerGui
+local gui = Instance.new("ScreenGui")
+gui.Name = "TinyUI"
+gui.DisplayOrder = 10
+gui.Parent = game.Players.LocalPlayer.PlayerGui
 
-local xorKey = 42  -- Choose any number for XOR encryption
-
-local o={
-    string.char(bit32.bxor(78, xorKey)),
-    string.char(bit32.bxor(65, xorKey)),
-    string.char(bit32.bxor(72, xorKey))
+local officialKeys = {
+    "KEY-VIOLAFOUNTAIN",
+    "KEY-ANONYMOUSCHEETAH",
+    "KEY-SLICKROACH"
 }
 
-local f=Instance.new("Frame")f.Size,f.Position,f.AnchorPoint,f.BackgroundTransparency =
-    UDim2.new(0,200,0,100),
-    UDim2.new(0.5,-100,0.5,-50),
-    Vector2.new(0.5,0.5),
-    0.5
-f.BackgroundColor3=Color3.new(139/255,0,0)f.Parent=g
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 200, 0, 100)
+frame.Position = UDim2.new(0.5, -100, 0.5, -50)
+frame.AnchorPoint = Vector2.new(0.5, 0.5)
+frame.BackgroundTransparency = 0.5
+frame.BackgroundColor3 = Color3.new(139 / 255, 0, 0)
+frame.Parent = gui
 
-local t=Instance.new("TextLabel")t.Size,t.Position,t.Text,t.TextColor3,t.Font,t.TextScaled,t.Parent=
-    UDim2.new(1,0,0,20),
-    UDim2.new(0,0,0,0),
-    "Atreus HUB KEY SYSTEM",
-    Color3.new(0,0,1),
-    Enum.Font.SourceSansBold,
-    true,
-    f
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 20)
+title.Position = UDim2.new(0, 0, 0, 0)
+title.Text = "Atreus HUB KEY SYSTEM"
+title.TextColor3 = Color3.new(0, 0, 1)
+title.Font = Enum.Font.SourceSansBold
+title.TextScaled = true
+title.Parent = frame
 
-local b=Instance.new("TextBox")b.Size,b.Position,b.PlaceholderText,b.TextColor3,b.Parent=
-    UDim2.new(0.8,0,0.2,0),
-    UDim2.new(0.1,0,0.4,0),
-    "Enter key...",
-    Color3.new(0,0,0),
-    f
+local textbox = Instance.new("TextBox")
+textbox.Size = UDim2.new(0.8, 0, 0.2, 0)
+textbox.Position = UDim2.new(0.1, 0, 0.4, 0)
+textbox.PlaceholderText = "Enter key..."
+textbox.TextColor3 = Color3.new(0, 0, 0)
+textbox.Parent = frame
 
-local gk=Instance.new("TextButton")gk.Size,gk.Position,gk.Text,gk.BackgroundColor3,gk.Parent=
-    UDim2.new(0.8,0,0.2,0),
-    UDim2.new(0.1,0,0.7,0),
-    "Get Key",
-    Color3.new(1,0,0),
-    f
+local getKeyButton = Instance.new("TextButton")
+getKeyButton.Size = UDim2.new(0.8, 0, 0.2, 0)
+getKeyButton.Position = UDim2.new(0.1, 0, 0.7, 0)
+getKeyButton.Text = "Get Key"
+getKeyButton.BackgroundColor3 = Color3.new(1, 0, 0)
+getKeyButton.Parent = frame
 
-local ek=Instance.new("TextButton")ek.Size,ek.Position,ek.Text,ek.BackgroundColor3,ek.Parent=
-    UDim2.new(0.2,0,0.2,0),UDim2.new(0.75,0,0.7,0),"Enter",Color3.new(0,1,0),f
+local enterKeyButton = Instance.new("TextButton")
+enterKeyButton.Size = UDim2.new(0.2, 0, 0.2, 0)
+enterKeyButton.Position = UDim2.new(0.75, 0, 0.7, 0)
+enterKeyButton.Text = "Enter"
+enterKeyButton.BackgroundColor3 = Color3.new(0, 1, 0)
+enterKeyButton.Parent = frame
 
-gk.MouseButton1Click:Connect(
-    function()
-        print("Get Key clicked")
-        setclipboard("https://link-target.net/966464/key-for-dendenz-hub")
+getKeyButton.MouseButton1Click:Connect(function()
+    print("Get Key clicked")
+    setclipboard("https://link-target.net/966464/key-for-dendenz-hub")
+end)
+
+enterKeyButton.MouseButton1Click:Connect(function()
+    print("Enter Key clicked")
+    local enteredKey = textbox.Text
+    if table.find(officialKeys, enteredKey) then
+        print("Entered Key is valid. Executing the script...")
+        gui:Destroy()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/Main/main/ATREUS%20HUB"))()
+    else
+        print("Invalid Key.")
     end
-)
-
-ek.MouseButton1Click:Connect(
-    function()
-        print("Enter Key clicked")
-        local e=b.Text
-        if table.find(o,e)then
-            print("Entered Key is valid. Executing the script...")
-            g:Destroy()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/Main/main/ATREUS%20HUB"))()
-        else
-            print("Invalid Key.")
-        end
-    end
-)
+end)
