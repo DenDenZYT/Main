@@ -1,0 +1,132 @@
+local CoastingLibrary =
+    loadstring(
+    game:HttpGet("https://raw.githubusercontent.com/GhostDuckyy/UI-Libraries/main/Coasting%20Ui%20Lib/source.lua")
+)()
+
+-- Tabs
+local CreditsTab = CoastingLibrary:CreateTab("Info & Credits")
+local HomeTab = CoastingLibrary:CreateTab("Home")
+local MiscTab = CoastingLibrary:CreateTab("Misc")
+
+-- Sections
+local MainSection = HomeTab:CreateSection("Main")
+local SpamSection = HomeTab:CreateSection("Spam")
+local CreditsSection = CreditsTab:CreateSection("Credits")
+local MiscSection = MiscTab:CreateSection("Misc")
+
+-- Toggles in MainSection
+MainSection:CreateToggle(
+    "Auto Parry V1",
+    function(boolean)
+        loadstring(
+            game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Parry", boolean)
+        )()
+    end
+)
+
+MainSection:CreateToggle(
+    "Auto Detect Spam",
+    function(boolean)
+        loadstring(game:HttpGet("https://pastebin.com/raw/HPNBFGSf"))(boolean)
+    end
+)
+
+MainSection:CreateToggle(
+    "Auto Clash Detector",
+    function(boolean)
+        loadstring(game:HttpGet("https://pastebin.com/raw/t2391h1A", boolean))()
+    end
+)
+
+-- Spam Section
+
+SpamSection:CreateButton(
+    "Manual Spam V1",
+    function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/gDez7buX"))()
+    end
+)
+
+SpamSection:CreateButton(
+     "Manual Spam V2 (RBG & SMALLER)",
+     function()
+          loadstring(game:HttpGet("https://rawscripts.net/raw/Blade-Ball-RGB-manual-spam-ui-9386"))()
+      end
+)
+
+SpamSection:CreateToggle(
+    "Auto Spam V1",
+    function(boolean)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/DonGabrielle/AutoDetectV4/main/MainBalls", boolean))(
+
+        )
+    end
+)
+
+SpamSection:CreateToggle(
+    "Auto Spam V2",
+    function(boolean)
+        loadstring(game:HttpGet("https://pastebin.com/raw/t2391h1A", boolean))()
+    end
+)
+
+SpamSection:CreateToggle(
+    "Hold Block To Spam",
+    function(boolean)
+        getgenv().SpamSpeed = 25
+        loadstring(
+            game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Spam", boolean)
+        )()
+    end
+)
+
+-- Credit Section
+
+CreditsSection:CreateButton(
+    "YouTube",
+    function()
+        setclipboard("https://youtube.com/@DenDenZZZ?si=NVDPLp7I-GddUJ4T")
+    end
+)
+
+CreditsSection:CreateButton(
+    "Discord",
+    function()
+        setclipboard("https://discord.com/invite/aVehscpKJK")
+    end
+)
+
+CreditsSection:CreateLabel("Developer : DenDenZ", "Sub to DenDenZ On YT!!")
+
+-- Misc & Extra Section
+MiscSection:CreateButton(
+    "FPS BOOST",
+    function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/FPSBooster.lua"))(
+
+        )
+    end
+)
+
+MiscSection:CreateButton(
+    "Delete Particles",
+    function()
+        loadstring(
+            game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/Destroy%20Particle%20Emitters")
+        )()
+    end
+)
+
+MiscSection:CreateButton(
+    "Shader UI",
+    function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/Cd76B8Lh"))()
+    end
+)
+
+MiscSection:CreateButton(
+    "FPS & PING Counter",
+    function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/littlegui/main/FPS-Counter"))()
+    end
+)
