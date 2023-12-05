@@ -1,0 +1,78 @@
+-- Create a ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Name = "TinyUI"
+gui.DisplayOrder = 10
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local officialKey = "KEY-RICKB4"
+
+-- Create a Frame for the UI
+local frame = Instance.new("Frame")
+frame.Size, frame.Position, frame.AnchorPoint, frame.BackgroundTransparency =
+    UDim2.new(0, 200, 0, 100),
+    UDim2.new(0.5, -100, 0.5, -25),
+    Vector2.new(0.5, 0.5),
+    0
+frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black
+frame.Parent = gui
+
+-- Create a TextBox in the Frame
+local textbox = Instance.new("TextBox")
+textbox.Size, textbox.Position, textbox.PlaceholderText, textbox.TextColor3, textbox.BackgroundTransparency, textbox.Parent =
+    UDim2.new(0.8, 0, 0.2, 0),
+    UDim2.new(0.1, 0, 0.35, 0),
+    "Enter key...",
+    Color3.new(0, 0, 0),
+    0.5,
+    frame
+
+-- Create a "Get Key" Button below the TextBox
+local getKeyButton = Instance.new("TextButton")
+getKeyButton.Size, getKeyButton.Position, getKeyButton.Text, getKeyButton.BackgroundColor3, getKeyButton.Parent =
+    UDim2.new(0.4, 0, 0.15, 0),
+    UDim2.new(0.3, 0, 0.55, 0),
+    "Get Key",
+    Color3.new(0.6, 0, 0.8), -- Violet
+    frame
+
+-- Create an "Enter Key" Button below the "Get Key" Button
+local enterKeyButton = Instance.new("TextButton")
+enterKeyButton.Size,
+    enterKeyButton.Position,
+    enterKeyButton.Text,
+    enterKeyButton.BackgroundColor3,
+    enterKeyButton.Parent = UDim2.new(0.4, 0, 0.15, 0), UDim2.new(0.3, 0, 0.75, 0), "Enter", Color3.new(0, 0.8, 0), -- Green
+    frame
+
+-- Create a title at the middle top
+local title = Instance.new("TextLabel")
+title.Size, title.Position, title.Text, title.TextColor3, title.Font, title.TextScaled, title.Parent =
+    UDim2.new(1, 0, 0, 20),
+    UDim2.new(0, 0, 0, 0),
+    "RAVEN B4",
+    Color3.new(1, 1, 1),
+    Enum.Font.SourceSansBold,
+    true,
+    frame
+
+-- Connect functions to button clicks
+getKeyButton.MouseButton1Click:Connect(
+    function()
+        print("Get Key clicked")
+        setclipboard("https://link-target.net/966464/raven-b4-key-system")
+    end
+)
+
+enterKeyButton.MouseButton1Click:Connect(
+    function()
+        print("Enter Key clicked")
+        local enteredKey = textbox.Text
+        if enteredKey == officialKey then
+            print("Entered Key is valid. Executing the script...")
+            gui:Destroy()
+            loadstring(game:HttpGet("https://gist.githubusercontent.com/goinglikeatrainlol/c19adfa90a95db3fb8fcea27a87d3254/raw/8a84b455a0ad6eb75df333dfc7598916d0547eb8/mysticware%2520remake"))()
+        else
+            print("Invalid Key.")
+        end
+    end
+)
