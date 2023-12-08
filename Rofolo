@@ -1,0 +1,83 @@
+-- Create a ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Name = "TinyUI"
+gui.DisplayOrder = 10
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local officialKeys = {
+    "bK3dF9aP7sV6mX1l",
+    "Jh7Lm2Gp9Rt4sN5q",
+    "XyZ4pQ8r2wF6vT9u",
+    "EMPTY-1MONTHKEY",
+    "ls91jskl-9khfnml8",
+    "KEY-UNLIMITEDEVENTS",
+}
+
+-- Create a Frame for the UI
+local frame = Instance.new("Frame")
+frame.Size, frame.Position, frame.AnchorPoint, frame.BackgroundTransparency =
+    UDim2.new(0, 200, 0, 100),
+    UDim2.new(0.5, -100, 0.5, -50),
+    Vector2.new(0.5, 0.5),
+    0.5
+frame.BackgroundColor3 = Color3.new(139 / 255, 0, 0) -- Dark red
+frame.Parent = gui
+
+-- Create a title at the middle top
+local title = Instance.new("TextLabel")
+title.Size, title.Position, title.Text, title.TextColor3, title.Font, title.TextScaled, title.Parent =
+    UDim2.new(1, 0, 0, 20),
+    UDim2.new(0, 0, 0, 0),
+    "Atreus HUB KEY SYSTEM",
+    Color3.new(0, 0, 1),
+    Enum.Font.SourceSansBold,
+    true,
+    frame
+
+-- Create a TextBox in the Frame
+local textbox = Instance.new("TextBox")
+textbox.Size, textbox.Position, textbox.PlaceholderText, textbox.TextColor3, textbox.Parent =
+    UDim2.new(0.8, 0, 0.2, 0),
+    UDim2.new(0.1, 0, 0.4, 0),
+    "Enter key...",
+    Color3.new(0, 0, 0),
+    frame
+
+-- Create a "Get Key" Button below the TextBox
+local getKeyButton = Instance.new("TextButton")
+getKeyButton.Size, getKeyButton.Position, getKeyButton.Text, getKeyButton.BackgroundColor3, getKeyButton.Parent =
+    UDim2.new(0.8, 0, 0.2, 0),
+    UDim2.new(0.1, 0, 0.7, 0),
+    "Get Key",
+    Color3.new(1, 0, 0),
+    frame
+
+-- Create an "Enter Key" Button near the "Get Key" Button
+local enterKeyButton = Instance.new("TextButton")
+enterKeyButton.Size,
+    enterKeyButton.Position,
+    enterKeyButton.Text,
+    enterKeyButton.BackgroundColor3,
+    enterKeyButton.Parent = UDim2.new(0.2, 0, 0.2, 0), UDim2.new(0.75, 0, 0.7, 0), "Enter", Color3.new(0, 1, 0), frame
+
+-- Connect functions to button clicks
+getKeyButton.MouseButton1Click:Connect(
+    function()
+        print("Get Key clicked")
+        setclipboard("https://link-target.net/966464/key-for-dendenz-hub")
+    end
+)
+
+enterKeyButton.MouseButton1Click:Connect(
+    function()
+        print("Enter Key clicked")
+        local enteredKey = textbox.Text
+        if table.find(officialKeys, enteredKey) then
+            print("Entered Key is valid. Executing the script...")
+            gui:Destroy()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/Main/main/fosiczmlq-083pejxn8hw"))()
+        else
+            print("Invalid Key.")
+        end
+    end
+)
