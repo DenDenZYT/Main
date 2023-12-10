@@ -1,0 +1,28 @@
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local Player = Players.LocalPlayer or Players.PlayerAdded:Wait()
+local PlayerGui = Player:WaitForChild("PlayerGui")
+
+-- Create a Wedge for the indicator
+local wedge = Instance.new("Wedge")
+wedge.Size = Vector3.new(10, 1, 10) -- Adjust the size as needed
+wedge.Color = Color3.new(0.5, 0.5, 0.5) -- Default color
+wedge.Parent = Player.Character:WaitForChild("Head")
+
+local function isTargeted()
+    return Player.Character and Player.Character:FindFirstChild("Head") and Player.Character.Head:FindFirstChild("Highlight")
+end
+
+local function updateIndicator()
+    if isTargeted() then
+        wedge.Color = Color3.new(1, 0, 0) -- Red when targeted
+    else
+        wedge.Color = Color3.new(0.5, 0.5, 0.5) -- Default color
+    end
+end
+
+-- RenderStepped event to constantly check conditions
+RunService.RenderStepped:Connect(function()
+    updateIndicator()
+end)
