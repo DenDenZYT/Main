@@ -1,0 +1,73 @@
+﻿local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+
+local Window = Library.CreateLib("Vikichard's BETA", "BloodTheme")
+
+--// TABS
+
+local MainTab = Window:NewTab("Main")
+local MiscTab = Window:NewTab("Misc")
+local CredTab = Window:NewTab("Credits")
+
+--// SECTIONS
+
+local APSection = MainTab:NewSection("Auto Parry")
+local SPAMSection = MainTab:NewSection("Spams")
+local MiscSection = MiscTab:NewSection("Misc")
+local CredSection = CredTab:NewSection("Info & Credits")
+
+--// MAIN ELEMENTS
+
+APSection:NewToggle("Auto Parry V1✅", "Distance : 38", function(state)
+    if state then
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/DenDenZ-On-YouTube/main/AP38"))()
+    end
+end)
+
+APSection:NewToggle("Auto Parry V2❤️", "Distance : 35", function(state)
+    if state then
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/DenDenZ-On-YouTube/main/AP35"))()
+    end
+end)
+
+APSection:NewToggle("Auto Parry V3👍", "Distance : 33", function(state)
+    if state then
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/DenDenZ-On-YouTube/main/AP33"))()
+    end
+end)
+
+SPAMSection:NewToggle("Auto Spam V1💥", "", function(state)
+    if state then
+   loadstring(game:HttpGet("https://pastebin.com/raw/hskidtcF"))()
+    end
+end)
+
+SPAMSection:NewToggle("Auto Spam V2😳", "", function(state)
+    if state then
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/DonGabrielle/AutoDetectV4/main/MainBalls"))()
+     end
+end)
+
+SPAMSection:NewButton("Manual Spam💯", "By DenDenZ", function()
+  loadstring(game:HttpGet("https://rawscripts.net/raw/Blade-Ball-RGB-manual-spam-ui-9386"))()
+end)
+
+MiscSection:NewButton("FPS BOOST🔝", "BUGGY", function()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/DonGabrielle/AutoDetectV4/main/MainBalls"))()
+end)
+
+MiscSection:NewButton("No Particles❌", "FAST MODE", function()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/Destroy%20Particle%20Emitters"))()
+end)
+
+MiscSection:NewButton("FPS AND PING COUNTER🔥", "Clean", function()
+  loadstring(game:HttpGet("https://pastefy.app/vba8z8MF/raw"))()
+end)
+
+CredSection:NewButton("Discord Server🥂", "Vikichard Server", function()
+  setclipboard("https://discord.com/invite/S53U6kfq")
+end)
+
+CredSection:NewLabel("Credits to :")
+CredSection:NewLabel("Vikichard - MAIN DEVELOPER")
+CredSection:NewLabel("DenDen - Manual Spam & FPS PING COUNTER 🔥")
+CredSection:NewLabel("Mr. Zack - Auto Parry V1🔥")
